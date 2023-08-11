@@ -7,7 +7,12 @@ package hello.core.member;
  * */
 public class MemberServiceImpl implements MemberService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
     /**
      * 단축키
      * ctrl + shift + enter ==> 자동완성에서 이걸로 ;까지 한번에 자동완성
