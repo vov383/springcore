@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="memberService" class="hello.core.member.MemberServiceImpl" >
+    <!--패키지명까지 다 적는다.-->
+        <constructor-arg name="memberRepository" ref="memberRepository" />
+    </bean>
+
+    <bean id="memberRepository" class="hello.core.member.MemoryMemberRepository" />
+
+    <bean id="orderService" class="hello.core.order.OrderServiceImpl">
+        <constructor-arg name="memberRepository" ref="memberRepository" />
+        <constructor-arg name="discountPolicy" ref="discountPolicy" />
+    </bean>
+
+    <bean id="discountPolicy" class="hello.core.discount.RateDiscountPolicy" />
+    <!--
+    이렇게 하면 세팅 끝
+    순수 자바코드랑 똑같다.
+    AppConfig.class랑 비교해보면 같음.
+    형식이 xml 문서일 뿐이다.
+    -->
+</beans>
