@@ -16,8 +16,6 @@ public class BeanDefinitionTest {
      * getBeanDefinition() 을 못한다.
      * */
 
-
-
     @Test
     @DisplayName("빈 설정 메타정보 확인")
     void findApplicationBean(){
